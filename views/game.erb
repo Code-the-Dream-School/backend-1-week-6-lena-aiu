@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+    <body style="background-color:<%= session[:bgcolor] %>">
+            <h1>Welcome to the Web-guesser game!</h1>
+            <h3>Instuction:</h3> 
+            <p>You have only 7 attempts to guess the number.<br>Please enter the number between 1 to 100.
+            </p>    
+        <div>
+            <form method="post" action="/guess">
+                <fieldset>
+                    <label for="number">Guess a number from 1 to 100: </label>
+                    <input type="text" name="user_guess" id="user_guess">
+                </fieldset>
+                <input type="submit">
+            </form>
+            <p> Your guesses: <%= session[:attempts]  %></p>
+            <p> Your last guess was: <%= session[:mistake] %></p>
+            <p> The secret number: <%= session[:secret_number] %></p>
+            <br>
+            <form action="/reset", method = "post">
+                 <label for="reset">Start again</label>
+                 <input type="submit" id="reset" name="reset" value="reset">
+            </form>
+        </div>
+    </body>
+</html>
